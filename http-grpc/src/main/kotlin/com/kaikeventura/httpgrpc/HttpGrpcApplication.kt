@@ -19,28 +19,30 @@ class Init(
 	private val companyService: CompanyService
 ) {
 
-	@PostConstruct
+	//@PostConstruct
 	fun start() {
-		val company = companyService.createCompany(
-			companyName = "Coquinha"
-		)
+		for (i in 1..10000) {
+			val company = companyService.createCompany(
+				companyName = "Coquinha $i"
+			)
 
-		companyService.addTax(
-			companyId = company.id!!,
-			taxType = TaxType.IOF,
-			percentage = 1.5
-		)
+			companyService.addTax(
+				companyId = company.id!!,
+				taxType = TaxType.IOF,
+				percentage = 0.02 * i
+			)
 
-		companyService.addTax(
-			companyId = company.id,
-			taxType = TaxType.IPI,
-			percentage = 19.2
-		)
+			companyService.addTax(
+				companyId = company.id,
+				taxType = TaxType.IPI,
+				percentage = 0.2 * i
+			)
 
-		companyService.addTax(
-			companyId = company.id,
-			taxType = TaxType.PIS,
-			percentage = 13.4
-		)
+			companyService.addTax(
+				companyId = company.id,
+				taxType = TaxType.PIS,
+				percentage = 0.3 * i
+			)
+		}
 	}
 }
