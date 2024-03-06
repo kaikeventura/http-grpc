@@ -14,10 +14,10 @@ data class CompanyEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @JdbcType(VarcharJdbcType::class)
-    val id: UUID,
+    val id: UUID? = null,
 
     val name: String,
 
     @OneToMany(mappedBy = "company")
-    val taxes: Set<TaxEntity>
+    val taxes: Set<TaxEntity>? = null
 )

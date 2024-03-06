@@ -10,7 +10,7 @@ data class TaxEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @JdbcType(VarcharJdbcType::class)
-    val id: UUID,
+    val id: UUID? = null,
 
     @Enumerated(EnumType.STRING)
     val type: TaxType,

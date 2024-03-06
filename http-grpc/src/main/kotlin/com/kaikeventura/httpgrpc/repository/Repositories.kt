@@ -10,4 +10,6 @@ import java.util.UUID
 interface CompanyRepository : JpaRepository<CompanyEntity, UUID>
 
 @Repository
-interface TaxRepository : JpaRepository<TaxEntity, UUID>
+interface TaxRepository : JpaRepository<TaxEntity, UUID> {
+    fun findAllByCompanyId(companyId: UUID): Set<TaxEntity>
+}
