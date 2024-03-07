@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "com.kaikeventura.httpgrpc.grpc.model";
+option java_outer_classname = "CompanyProto";
+
+service CompanyService {
+  rpc GetTaxesByCompanyId(GetTaxesRequest) returns (CompanyTaxes) {}
+}
+
+message GetTaxesRequest {
+  string companyId = 1;
+}
+
+message CompanyTaxes {
+  string id = 1;
+  repeated Tax taxes = 2;
+}
+
+message Tax {
+  string type = 1;
+  double percentage = 2;
+}
