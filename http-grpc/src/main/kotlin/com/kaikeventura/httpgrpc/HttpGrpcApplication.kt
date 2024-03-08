@@ -2,13 +2,27 @@ package com.kaikeventura.httpgrpc
 
 import com.kaikeventura.httpgrpc.entity.TaxType
 import com.kaikeventura.httpgrpc.service.CompanyService
+import io.grpc.BindableService
+import io.grpc.ServerBuilder
 import jakarta.annotation.PostConstruct
+import org.springframework.boot.ApplicationArguments
+import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Component
 
 @SpringBootApplication
-class HttpGrpcApplication
+class HttpGrpcApplication(val services: List<BindableService>) : ApplicationRunner {
+	override fun run(args: ApplicationArguments?) {
+		val serverBuilder = ServerBuilder.forPort(9090)
+		services.forEach{
+			serverBuilder.addService(it)
+		}
+		serverBuilder
+			.build()
+			.start()
+	}
+}
 
 fun main(args: Array<String>) {
 	runApplication<HttpGrpcApplication>(*args)

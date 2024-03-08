@@ -4,7 +4,7 @@ import com.google.protobuf.gradle.*
 plugins {
 	id("org.springframework.boot") version "3.2.3"
 	id("io.spring.dependency-management") version "1.1.4"
-	id ("com.google.protobuf") version "0.8.18"
+	id("com.google.protobuf") version "0.9.4"
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
@@ -69,5 +69,20 @@ sourceSets{
 		proto{
 			srcDir("$buildDir/generated/sources/proto/main/grpc")
 		}
+		java.srcDirs(
+			"build/generated/source/proto/main/grpc",
+			"build/generated/source/proto/main/grpckt",
+			"build/generated/source/proto/main/java",
+			"build/generated/source/proto/main/kotlin"
+		)
 	}
+}
+
+sourceSets.main {
+	java.srcDirs(
+		"build/generated/source/proto/main/grpc",
+		"build/generated/source/proto/main/grpckt",
+		"build/generated/source/proto/main/java",
+		"build/generated/source/proto/main/kotlin"
+	)
 }

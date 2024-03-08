@@ -11,5 +11,5 @@ interface CompanyRepository : JpaRepository<CompanyEntity, UUID>
 
 @Repository
 interface TaxRepository : JpaRepository<TaxEntity, UUID> {
-    fun findAllByCompanyId(companyId: UUID): Set<TaxEntity>
+    fun findAllByCompanyId(companyId: UUID): List<TaxEntity>
 }

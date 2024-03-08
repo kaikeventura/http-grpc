@@ -48,14 +48,14 @@ class CompanyService(
                     type = it.type,
                     percentage = it.percentage
                 )
-            }.toSet()
+            }
         )
     }
 }
 
 data class CompanyTaxes(
     val id: UUID,
-    val taxes: Set<Tax>
+    val taxes: List<Tax>
 )
 
 data class Tax(
