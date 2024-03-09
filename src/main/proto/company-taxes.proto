@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.kaikeventura.httpgrpc.grpc.company;
+
+service CompanyService {
+  rpc GetTaxesByCompanyId(GetTaxesRequest) returns (CompanyTaxesResponse) {}
+}
+
+message GetTaxesRequest {
+  string companyId = 1;
+}
+
+message CompanyTaxesResponse {
+  string id = 1;
+  repeated Tax taxes = 2;
+}
+
+message Tax {
+  string type = 1;
+  double percentage = 2;
+}
