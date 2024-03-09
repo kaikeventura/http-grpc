@@ -26,6 +26,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE")
 	implementation("io.grpc:grpc-netty:1.44.1")
 	implementation("io.grpc:grpc-protobuf:1.44.1")
 	implementation("io.grpc:grpc-kotlin-stub:1.2.1")

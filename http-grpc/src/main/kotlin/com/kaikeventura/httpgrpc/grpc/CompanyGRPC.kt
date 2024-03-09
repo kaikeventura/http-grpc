@@ -6,10 +6,10 @@ import com.kaikeventura.httpgrpc.grpc.company.CompanyTaxes.CompanyTaxesResponse
 import com.kaikeventura.httpgrpc.grpc.company.CompanyTaxes.Tax
 import com.kaikeventura.httpgrpc.service.CompanyService
 import io.grpc.stub.StreamObserver
-import org.springframework.stereotype.Component
+import net.devh.boot.grpc.server.service.GrpcService
 import java.util.UUID
 
-@Component
+@GrpcService
 class CompanyGRPC(
     private val companyService: CompanyService
 ) : CompanyServiceGrpc.CompanyServiceImplBase() {
